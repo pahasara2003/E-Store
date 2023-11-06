@@ -33,9 +33,16 @@ const WishList = () => {
   return (
     <div className="flex flex-col items-center">
       {wishlist ? (
-        wishlist.map((a) => {
-          return <ListElement data={a} isCart={carts.includes(a.item)} />;
-        })
+        <>
+          {wishlist.map((a) => {
+            return <ListElement data={a} isCart={carts.includes(a.item)} />;
+          })}
+          {wishlist.length === 0 ? (
+            <p className=" text-xl font-bold text-center py-3">
+              Your Wishlist is empty ...{" "}
+            </p>
+          ) : null}
+        </>
       ) : (
         <>
           <Skeleton height={70} count={4} className="my-3" />

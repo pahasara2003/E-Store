@@ -34,9 +34,13 @@ const MiniCart = () => {
               Total{" "}
               {price.reduce((acc, current) => acc + current, 0).toFixed(2)} $
             </p>
-          ) : (
+          ) : sessionStorage.getItem("id") !== null ? (
             <p className=" text-xl font-bold text-center py-3">
               Your cart is empty ...{" "}
+            </p>
+          ) : (
+            <p className=" text-xl font-bold text-center py-3">
+              Please login first ...{" "}
             </p>
           )}
         </>

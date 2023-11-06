@@ -1,13 +1,7 @@
 import React, { useRef, useState } from "react";
-import {
-  Heading,
-  TextField,
-  TextArea,
-  Button,
-  Text,
-  Link,
-} from "@radix-ui/themes";
+import { Heading, TextField, TextArea, Button, Text } from "@radix-ui/themes";
 import NavBar from "../NavBar";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const form = useRef();
@@ -47,7 +41,7 @@ const SignUp = () => {
           e.preventDefault();
           submit();
         }}
-        className="bg-white min-h-[70vh] sm:w-[500px] mx-auto p-10"
+        className="bg-white flex flex-col items-center min-h-[70vh] sm:w-[500px] mx-auto p-10"
       >
         <input type="hidden" name="submit" value="signup" />
         <Heading className="text-center pt-10 pb-7 text-slate-500">
@@ -57,8 +51,8 @@ const SignUp = () => {
         <div className="flex h-[40px] justify-evenly flex-wrap">
           {state ? (
             <>
-              <Text>You are registered</Text>
-              <Link color="blue" href="/E-Store/sign+In">
+              <Text>You are registered&nbsp;</Text>
+              <Link to={"/E-Store/sign+In"} className="text-blue-500 px-3">
                 Click here to Login
               </Link>
             </>
@@ -117,7 +111,12 @@ const SignUp = () => {
             ></TextField.Input>
           </TextField.Root>
         </div>
-        <Button name="submit" value={"signup"} className="m-auto block">
+        <Button
+          name="submit"
+          color="blue"
+          value={"signup"}
+          className="m-auto block"
+        >
           Sign Up
         </Button>
       </form>

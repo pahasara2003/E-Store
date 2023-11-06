@@ -3,6 +3,7 @@ import Stars from "./Stars";
 import "@radix-ui/themes/styles.css";
 import CardLoader from "./CardLoader";
 import { Tooltip, Popover } from "@radix-ui/themes";
+import Skeleton from "react-loading-skeleton";
 import PopoverContent from "./PopoverContent";
 
 const Card = ({ data, wish, cart, state }) => {
@@ -40,7 +41,7 @@ const Card = ({ data, wish, cart, state }) => {
         <div className="w-[300px] text-center items-center justify-between flex flex-col py-2 my-5 shadow-lg hover:ring-[2px] duration-300 cursor-pointer ring-red-400 rounded-xl h-[430px]">
           <img
             className="max-w-[270px]  min-h-[220px] object-cover max-h-[250px]"
-            src={data.image_url}
+            src={`${data.image_url}`}
           ></img>
 
           <Popover.Root>

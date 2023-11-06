@@ -9,12 +9,9 @@ const Page = () => {
     <>
       <Routes>
         <Route path="/E-Store/" element={<HomePage />} />
-        <Route path="/E-Store/dashboard">
-          <Route index element={<Dashboard page="account" />} />
-          <Route path="wishlist" element={<Dashboard page="wishlist" />} />
-          <Route path="orders" element={<Dashboard page="orders" />} />
-          <Route path="cart" element={<Dashboard page="cart" />} />
-        </Route>
+        <Route path="/E-Store/account" element={<Dashboard page={0} />} />
+        <Route path="/E-Store/wishlist" element={<Dashboard page={2} />} />
+        <Route path="/E-Store/cart" element={<Dashboard page={1} />} />
         <Route path="/E-Store/sign+In" element={<SignIn />} />
 
         <Route path="/E-Store/sign+Up" element={<SignUp />} />

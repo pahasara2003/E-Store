@@ -45,7 +45,7 @@ const SignIn = () => {
           e.preventDefault();
           submit();
         }}
-        className="bg-white min-h-[500px] sm:w-[500px] mx-auto p-10"
+        className="bg-white items-center min-h-[500px] flex flex-col sm:w-[500px] mx-auto p-10"
       >
         <input type="hidden" name="submit" value="signup" />
         <Heading className="text-center pt-10 pb-7 text-slate-500">
@@ -83,7 +83,12 @@ const SignIn = () => {
             ></TextField.Input>
           </TextField.Root>
         </div>
-        <Button name="submit" value={"signin"} className="m-auto block">
+        <Button
+          name="submit"
+          color="blue"
+          value={"signin"}
+          className="w-[100px]"
+        >
           Sign In
         </Button>
       </form>

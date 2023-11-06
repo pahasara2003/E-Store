@@ -10,6 +10,12 @@ import NavBar from "../NavBar";
 
 const Dashboard = ({ page }) => {
   const [data, setData] = useState(null);
+
+  const list = [
+    { title: "Your Billing Information", element: <Details data={data} /> },
+    { title: "Your Cart", element: <Cart /> },
+    { title: "Your Wishlist", element: <WishList /> },
+  ];
   const id = sessionStorage.getItem("id");
   if (id === null) {
     Navigate("/E-Store");
@@ -35,31 +41,9 @@ const Dashboard = ({ page }) => {
           <>
             <ProfileTitle name={data[0].FirstName} />
 
-            <Tabs.Root defaultValue={page}>
-              <Tabs.List
-                size="2"
-                className="m-3 h-fit py-2 flex flex-wrap justify-center"
-              >
-                <Tabs.Trigger value="account">Billing Details</Tabs.Trigger>
-                <Tabs.Trigger value="cart">Cart</Tabs.Trigger>
-                <Tabs.Trigger value="wishlist">Wish List</Tabs.Trigger>
-                <Tabs.Trigger value="orders">Orders</Tabs.Trigger>
-              </Tabs.List>
-              <Box px="4" pt="3" pb="2">
-                <Tabs.Content value="cart">
-                  <Cart />
-                </Tabs.Content>
-
-                <Tabs.Content value="wishlist">
-                  <WishList />
-                </Tabs.Content>
-
-                <Tabs.Content value="orders">{/* <WishList /> */}</Tabs.Content>
-                <Tabs.Content value="account">
-                  <Details data={data} />
-                </Tabs.Content>
-              </Box>
-            </Tabs.Root>
+            <Box px="4" pt="3" pb="2">
+              {list[page].element}
+            </Box>
           </>
         ) : (
           <>

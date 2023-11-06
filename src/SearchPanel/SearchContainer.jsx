@@ -34,6 +34,7 @@ const SearchContainer = () => {
     };
   }, [search]);
 
+  console.log(data);
   return (
     <div className="bg-white pt-11 min-h-[110vh]">
       <SearchBar setSearch={setSearch} data={data} />
@@ -51,7 +52,7 @@ const SearchContainer = () => {
 
       <div className="w-[90vw] gap-3 flex flex-wrap justify-evenly mx-auto ">
         {state && data.length > 1 ? (
-          data.map((product, i) => {
+          data.map((product) => {
             return (
               <Card
                 data={product}

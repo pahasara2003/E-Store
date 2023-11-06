@@ -9,7 +9,7 @@ const PopoverContent = ({ data, inCart, isWished, setWish, setCart }) => {
         {(
           <img
             className="max-w-[230px] min-h-[20vw] object-cover max-h-[250px]"
-            src={data.image_url}
+            src={`${data.image_url}`}
           />
         ) || <Skeleton width={"270px"} height={"250px"} />}
         <div>
