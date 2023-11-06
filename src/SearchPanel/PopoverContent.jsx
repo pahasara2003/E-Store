@@ -1,10 +1,8 @@
-import { useState } from "react";
 import Stars from "./Stars";
 import "@radix-ui/themes/styles.css";
 import Skeleton from "react-loading-skeleton";
 
 const PopoverContent = ({ data, inCart, isWished, setWish, setCart }) => {
-  console.log(data);
   return (
     <>
       <div className=" text-center items-center gap-5 justify-center flex  flex-wrap max-w-[80vw] p-5  duration-300  ">

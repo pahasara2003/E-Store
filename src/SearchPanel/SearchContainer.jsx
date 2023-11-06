@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 import { Heading } from "@radix-ui/themes";
 import SearchBar from "./SearchBar";
@@ -7,13 +7,12 @@ import OnCard from "./OnCard";
 import { Popover } from "@radix-ui/themes";
 import { FaShoppingCart } from "react-icons/fa";
 import MiniCart from "./MiniCart";
-import { useAuth } from "../AuthProvider";
 
 const SearchContainer = () => {
   const [search, setSearch] = useState("phone");
   const [data, setData] = useState([]);
   const [state, setState] = useState(true);
-  const id = useAuth()();
+  const id = sessionStorage.getItem("id");
   useEffect(() => {
     const Fetch = async () => {
       fetch(

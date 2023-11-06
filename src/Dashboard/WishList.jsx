@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import ListElement from "./ListElement";
 import Skeleton from "react-loading-skeleton";
-import { useAuth } from "../AuthProvider";
 
 const WishList = () => {
   const [wishlist, setWishlist] = useState(false);
   const [carts, setCarts] = useState(false);
-  const id = useAuth()();
+  const id = sessionStorage.getItem("id");
 
   useEffect(() => {
     const Fetch = async () => {

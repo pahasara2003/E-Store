@@ -6,13 +6,13 @@ import Skeleton from "react-loading-skeleton";
 import ProfileTitle from "./ProfileTitle";
 import { Tabs, Box } from "@radix-ui/themes";
 import { Navigate } from "react-router-dom";
-import { useAuth, useConfirm } from "../AuthProvider";
+import NavBar from "../NavBar";
 
 const Dashboard = ({ page }) => {
   const [data, setData] = useState(null);
-  const id = useAuth()();
-  if (useAuth() !== useConfirm()) {
-    Navigate("/");
+  const id = sessionStorage.getItem("id");
+  if (id === null) {
+    Navigate("/E-Store");
   }
 
   useEffect(() => {
@@ -29,6 +29,7 @@ const Dashboard = ({ page }) => {
 
   return (
     <>
+      <NavBar />
       <div className="pt-5 my-0 md:my-10 md:mx-[10vw] min-h-[800px] rounded-lg bg-white shadow-md   ">
         {data !== null ? (
           <>

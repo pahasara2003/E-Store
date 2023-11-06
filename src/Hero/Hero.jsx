@@ -1,9 +1,5 @@
-import { Link } from "react-router-dom";
-import { useAuth, useConfirm, useSign } from "../AuthProvider";
 import SlideShow from "./SlideShow";
 const Hero = () => {
-  console.log(useAuth()());
-
   return (
     <div className="bg-[#f2f2f2] min-h-[87vh] flex justify-evenly flex-wrap items-center">
       <div className="w-[300px] flex-col py-10 items-center flex justify-between">

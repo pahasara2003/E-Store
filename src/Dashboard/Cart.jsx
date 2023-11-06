@@ -1,12 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import CartElement from "./CartElement";
 import Skeleton from "react-loading-skeleton";
-import { useAuth } from "../AuthProvider";
 
 const Cart = () => {
   const [Cartlist, setCartlist] = useState(false);
   const [price, setPrice] = useState([]);
-  const id = useAuth()();
+  const id = sessionStorage.getItem("id");
 
   useEffect(() => {
     const Fetch = async () => {

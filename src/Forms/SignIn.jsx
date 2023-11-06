@@ -8,11 +8,9 @@ import {
   Link,
 } from "@radix-ui/themes";
 import { useNavigate } from "react-router-dom";
-import { useSetConfirm, useSign } from "../AuthProvider";
+import NavBar from "../NavBar";
 
 const SignIn = () => {
-  const SignIn = useSign();
-  const Confirm = useSetConfirm();
   const form = useRef();
   const [state, setState] = useState(null);
   const Navigate = useNavigate();
@@ -36,9 +34,8 @@ const SignIn = () => {
         console.log(response);
         if (response.id !== undefined) {
           setState(true);
-          Navigate("/");
-          SignIn(response.id);
-          Confirm(response.id);
+          Navigate("/E-Store");
+          sessionStorage.setItem("id", response.id);
         } else {
           setState(false);
         }
@@ -46,54 +43,57 @@ const SignIn = () => {
       .catch((err) => console.error(err));
   };
   return (
-    <form
-      ref={form}
-      onSubmit={(e) => {
-        e.preventDefault();
-        submit();
-      }}
-      className="bg-white min-h-[500px] sm:w-[500px] mx-auto p-10"
-    >
-      <input type="hidden" name="submit" value="signup" />
-      <Heading className="text-center pt-10 pb-7 text-slate-500">
-        {" "}
-        Sign In
-      </Heading>
-      <div className="flex h-[40px] justify-evenly flex-wrap">
-        {state ? (
-          <>
-            <Text>You are Logged In</Text>
-          </>
-        ) : state === false ? (
-          <>
-            <p className="text-red-500">An problem occured. Try again</p>
-          </>
-        ) : null}
-      </div>
+    <>
+      <NavBar />
+      <form
+        ref={form}
+        onSubmit={(e) => {
+          e.preventDefault();
+          submit();
+        }}
+        className="bg-white min-h-[500px] sm:w-[500px] mx-auto p-10"
+      >
+        <input type="hidden" name="submit" value="signup" />
+        <Heading className="text-center pt-10 pb-7 text-slate-500">
+          {" "}
+          Sign In
+        </Heading>
+        <div className="flex h-[40px] justify-evenly flex-wrap">
+          {state ? (
+            <>
+              <Text>You are Logged In</Text>
+            </>
+          ) : state === false ? (
+            <>
+              <p className="text-red-500">An problem occured. Try again</p>
+            </>
+          ) : null}
+        </div>
 
-      <div className="py-10 flex justify-center flex-wrap gap-3">
-        <TextField.Root className="w-[80%]">
-          <TextField.Input
-            type="email"
-            name="email"
-            placeholder="Email"
-          ></TextField.Input>
-        </TextField.Root>
+        <div className="py-10 flex justify-center flex-wrap gap-3">
+          <TextField.Root className="w-[80%]">
+            <TextField.Input
+              type="email"
+              name="email"
+              placeholder="Email"
+            ></TextField.Input>
+          </TextField.Root>
 
-        <input type="hidden" name="submit" value={"signin"} />
+          <input type="hidden" name="submit" value={"signin"} />
 
-        <TextField.Root className="w-[80%]">
-          <TextField.Input
-            name="pwd"
-            placeholder="Password"
-            type="password"
-          ></TextField.Input>
-        </TextField.Root>
-      </div>
-      <Button name="submit" value={"signin"} className="m-auto block">
-        Sign In
-      </Button>
-    </form>
+          <TextField.Root className="w-[80%]">
+            <TextField.Input
+              name="pwd"
+              placeholder="Password"
+              type="password"
+            ></TextField.Input>
+          </TextField.Root>
+        </div>
+        <Button name="submit" value={"signin"} className="m-auto block">
+          Sign In
+        </Button>
+      </form>
+    </>
   );
 };
 

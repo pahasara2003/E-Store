@@ -2,7 +2,7 @@
   "name": "estore",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://pahasara2003.github.io/E-store",
+  "homepage": "https://pahasara2003.github.io/E-Store/",
   "dependencies": {
     "@radix-ui/themes": "^2.0.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "tailwindcss": "^3.3.5"
   }
 }

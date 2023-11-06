@@ -5,12 +5,11 @@ import CardLoader from "./CardLoader";
 import { Tooltip, Popover } from "@radix-ui/themes";
 import Skeleton from "react-loading-skeleton";
 import PopoverContent from "./PopoverContent";
-import { useAuth } from "../AuthProvider";
 
 const Card = ({ data, wish, cart, state }) => {
   const [isWished, setWish] = useState(wish);
   const [inCart, setCart] = useState(cart);
-  const id = useAuth()();
+  const id = sessionStorage.getItem("id");
 
   const FetchWish = () => {
     if (!isWished) {

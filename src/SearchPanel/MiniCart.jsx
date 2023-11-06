@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import MiniCartElement from "./MiniCartElemet";
 import Skeleton from "react-loading-skeleton";
-import { useAuth } from "../AuthProvider";
 
 const MiniCart = () => {
   const [Cartlist, setCartlist] = useState(false);
   const [price, setPrice] = useState([]);
-  const id = useAuth()();
+  const id = sessionStorage.getItem("id");
 
   useEffect(() => {
     const Fetch = async () => {

@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-import { useAuth } from "../AuthProvider";
 
 const ListElement = ({ data, isCart }) => {
   const [state, setState] = useState(true);
   const [inCart, setCart] = useState(isCart);
-  const id = useAuth()();
+  const id = sessionStorage.getItem("id");
 
   const FetchCart = () => {
     if (!inCart) {

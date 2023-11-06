@@ -1,11 +1,10 @@
 import { useState, useRef } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-import { useAuth } from "../AuthProvider";
 
 const CartElement = ({ data, Setcount, index }) => {
   const [state, setState] = useState(true);
   const [price, setPrice] = useState(data.price);
-  const id = useAuth()();
+  const id = sessionStorage.getItem("id");
 
   const Fetch = () => {
     fetch(
