@@ -1,12 +1,5 @@
 import React, { useRef, useState } from "react";
-import {
-  Heading,
-  TextField,
-  TextArea,
-  Button,
-  Text,
-  Link,
-} from "@radix-ui/themes";
+import { Heading, TextField, Button, Text } from "@radix-ui/themes";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../NavBar";
 
@@ -28,14 +21,15 @@ const SignIn = () => {
       body: new URLSearchParams(jsonObject),
     };
 
-    fetch("http://server.byte-burst.xyz/", options)
+    fetch("https://server.byte-burst.xyz/", options)
       .then((response) => response.json())
       .then((response) => {
         console.log(response);
         if (response.id !== undefined) {
           setState(true);
-          Navigate("/E-Store");
           sessionStorage.setItem("id", response.id);
+          Navigate("/E-Store");
+          window.location.reload();
         } else {
           setState(false);
         }

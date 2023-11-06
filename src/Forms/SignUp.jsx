@@ -26,7 +26,7 @@ const SignUp = () => {
       body: new URLSearchParams(jsonObject),
     };
 
-    fetch("http://server.byte-burst.xyz/", options)
+    fetch("https://server.byte-burst.xyz/", options)
       .then((response) => response.text())
       .then((response) => {
         console.log(response);

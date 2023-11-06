@@ -17,6 +17,7 @@ const NavBar = () => {
             <NavLink
               onClick={() => {
                 sessionStorage.removeItem("id");
+                window.location.reload();
               }}
               to={"/E-Store"}
             >
